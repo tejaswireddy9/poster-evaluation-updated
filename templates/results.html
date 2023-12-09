@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Scan Results</h1>
+    </header>
+    <main>
+        <section class="results-section">
+            <h2>Evaluation Results</h2>
+            <div class="result-container">
+
+                <div class="result-item">
+                    <strong>QR Code Data:</strong>
+                    <span id="qrCodeData">{{ qr_code_data }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Average RGB:</strong>
+                    <span id="averageRGB">{{ average_rgb_result }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Indentation Evaluation:</strong>
+                    <span id="indentationResult">{{ indentation_result }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Extracted link:</strong>
+                    <span id="extractedLinkData">{{ link_result }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Language:</strong>
+                    <span id="extractedLanguage">{{ lang_result }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Image Clarity Score:</strong>
+                    <span id="clarityResult">{{ clarity_result }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Clutter Score:</strong>
+                    <span id="clutterResult">{{ clutter_result }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Horizontal symmetry score:</strong>
+                    <span id="horizontalSymmetryScore">{{ hsym }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Vertical symmetry score:</strong>
+                    <span id="verticalSymmetryScore">{{ vsym }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Visual balance score:</strong>
+                    <span id="balanceScore">{{ balance }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Sentiment Result:</strong>
+                    <span id="sentimentResult">{{ sentiment_result }}</span>
+                </div>
+                <div class="result-item">
+                    <strong>Logo:</strong>
+                    <span id="logoResult">{{ logo }}</span>
+                </div>
+                <div class="result-item">
+                    <h3>Color Palette:</h3>
+                    <div style="display: flex;">
+                        {% for color in color_palette %}
+                            <div style="background-color: rgb({{ color[0] }}, {{ color[1] }}, {{ color[2] }}); width: 50px; height: 50px; margin: 5px;"></div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="result-item">
+                    <strong>Extracted Text:</strong>
+                    <span id="extractedText">{{ extracted_text }}</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
